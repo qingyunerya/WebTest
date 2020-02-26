@@ -1,7 +1,21 @@
 <%@ page language="java" import="java.util.*" contentType="text/html; charset=utf-8"%>
+<%String path=request.getContextPath();
+String basePath=request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+
+Enumeration<String> enumeration =request.getHeaderNames();
+String info=null;
+while(enumeration.hasMoreElements())
+{
+	String name=enumeration.nextElement();
+	String value=request.getHeader(name);
+	info=info+name+":"+value+"<br/>";
+	
+}
+%>
 <!DOCTYPE html>
 <html>
 <head>
+	<base href="<%=basePath%>">
 	<title>login</title>
 	<meta charset="UTF-8">
 	<meta http-equiv="pragma" content="no-cache">
@@ -12,8 +26,13 @@
 	<meta http-equiv="description" content="demo test">
 </head>
 <body>
-<form action="load.jsp" method="post">
-	<table align="center" style="width：300px;margin: 10px auto; border-collapse: collapse; border: 1px solid #aaccdd">
+<form action="validate.jsp" method="post">
+	<table align="center" style="margin: 10px auto; border-collapse: collapse; border: 1px solid #aaccdd">
+		<tr>
+			<td align="center">
+				<font size="4">用户登录</font>
+			</td>
+		</tr>
 		<tr>
 			<td>
 				<label for="username">用户名：</label>
@@ -23,16 +42,19 @@
 		<tr>
 			<td>
 				<label for="userpassword">用户密码:</label>
-				<input type="password" name="userpassword">
+				<input type="password" name="password">
 			</td>
 		</tr>
-		<tr>
-			<td align="center">
+		<tr align="center">
+			<td>
 				<input type="submit" value="登陆">
+				<input type="reset" value="重置">
 			</td>
 		</tr>
 	</table>
-
 </form>
+<div>
+<%=info %>
+</div>
 </body>
 </html>
