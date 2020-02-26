@@ -11,6 +11,12 @@ while(enumeration.hasMoreElements())
 	info=info+name+":"+value+"<br/>";
 	
 }
+Integer count=(Integer)application.getAttribute("count");
+if(count==null)count=1;
+else count++;
+application.setAttribute("count", count);
+response.setContentType("text/html;charser=utf-8");
+String pageinfo=Integer.toString(page.hashCode());  //Servlet类的哈希代码
 %>
 <!DOCTYPE html>
 <html>
@@ -55,6 +61,7 @@ while(enumeration.hasMoreElements())
 </form>
 <div>
 <%=info %>
+访问次数:<%=count %>
 </div>
 </body>
 </html>
