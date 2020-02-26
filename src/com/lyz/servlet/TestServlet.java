@@ -11,11 +11,12 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet(
+/*@WebServlet(
 		urlPatterns = {"/HelloServlet"},
 		name="helloServlet"
 )
-public class HelloServlet extends HttpServlet {
+*/
+public class TestServlet extends HttpServlet {
 
 	/**
 	 * 
@@ -24,54 +25,43 @@ public class HelloServlet extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		System.out.println("调用Get方法");
 		resp.setContentType("text/html;charset=utf-8");
 		PrintWriter out=resp.getWriter();
-		out.println("<html>");
-		out.println("<head><title>helloservlet</title></head>");
-		out.println("<body>");
-		out.println("这是内容");
-		out.println("</body>");
-		out.println("</html>");
-		out.flush();
-		out.close();
-		System.out.println("调用Get方法");
+		out.println("欢迎收到doGet方法");
+		out.println("<br/><center>九九乘法表</center>");
+		out.println("<table align='center' style='border-collapse:collapse;border:1px solid #aaccbb;border-radius:5px;'>");
+		for(int a=1;a<10;a++)
+		{
+			out.println("<tr style=\"padding:2px; border: 1px solid #aaccdd\">");
+			for(int b=1;b<10;b++)
+			{
+				out.println("<td style=\"padding:2px; border: 1px solid #aaccdd\">");
+				out.println(""+a*b);
+				out.println("</td>");
+			}
+			out.println("</tr>");
+		}
+		out.println("</table>");
+		
 		
 	}
 
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		System.out.println("调用post方法");
 		doGet(req, resp);
-	}
-
-	@Override
-	protected void service(HttpServletRequest arg0, HttpServletResponse arg1) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		super.service(arg0, arg1);
-		System.out.println("调用protected service方法");
-	}
-
-	@Override
-	public void service(ServletRequest arg0, ServletResponse arg1) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		super.service(arg0, arg1);
-		System.out.println("调用service方法");
 	}
 
 	@Override
 	public void destroy() {
 		// TODO Auto-generated method stub
 		super.destroy();
-		System.out.println("调用destroy方法");
 	}
 
 	@Override
 	public void init() throws ServletException {
 		// TODO Auto-generated method stub
 		super.init();
-		System.out.println("调用init方法");
 	}
 	
 

@@ -16,8 +16,17 @@
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>jspconfigdemo</servlet-name>
-		<url-pattern>/config.jsp</url-pattern>
+		<url-pattern>/config</url-pattern>
 	</servlet-mapping>
-
+	
+	<servlet>
+		<servlet-name>TestServlet</servlet-name>
+		<servlet-class>com.lyz.servlet.TestServlet</servlet-class>
+	
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>TestServlet</servlet-name>
+		<url-pattern>/TestServlet</url-pattern>
+	</servlet-mapping>
 
 </web-app>
