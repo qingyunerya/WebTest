@@ -43,7 +43,6 @@ public class TestServlet extends HttpServlet {
 		}
 		out.println("</table>");
 		
-		
 	}
 
 	@Override
