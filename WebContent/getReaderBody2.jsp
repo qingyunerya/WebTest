@@ -2,28 +2,11 @@
 <%String path=request.getContextPath();
 String basePath=request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 %>
-<%!
-String info="";
-%>
-<%
-	Enumeration<String> e=session.getAttributeNames();
-	while(e.hasMoreElements())
-	{
-		String name=e.nextElement();
-		String value=(String)session.getAttribute(name);
-		info=info+name+":"+value+"<br/>";
-	}
-	session.removeAttribute("username");
-	session.removeAttribute("password");
-	session.invalidate();
-	response.sendRedirect("login.jsp");
-	
-%>
 <!DOCTYPE html>
 <html>
 <head>
 	<base href="<%=basePath%>">
-	<title>logout</title>
+	<title>class</title>
 	<meta charset="UTF-8">
 	<meta http-equiv="pragma" content="no-cache">
 	<meta http-equiv="expires" content="0">
@@ -33,14 +16,11 @@ String info="";
 	<meta http-equiv="description" content="demo test">
 </head>
 <body>
-<%--注释 --%>
-<!-- 注释 -->
-	<center>
-		<a href="login.jsp">点击返回登录界面</a>
-	</center>
-	<div>
-	<%=info %>
-	</div>
-	<%info=""; %>	
+	<center><font size="4">上传文件</font></center>
+	<hr/>
+	<form action="<%=request.getContextPath()%>/GetReaderBody2" method="post" enctype="multipart/form-data">
+	<input type="file" name="filename">
+	<input type="submit" value="提交">
+	</form>
 </body>
 </html>

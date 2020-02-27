@@ -60,6 +60,7 @@ String basePath=request.getScheme()+"://"+request.getServerName()+":"+request.ge
 	<a href="login.jsp">密码有误,点击返回</a>
 	<%} %>
 	</center>
+	<div><%=basePath %></div>
 	
 </body>
 </html>

@@ -2,28 +2,11 @@
 <%String path=request.getContextPath();
 String basePath=request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 %>
-<%!
-String info="";
-%>
-<%
-	Enumeration<String> e=session.getAttributeNames();
-	while(e.hasMoreElements())
-	{
-		String name=e.nextElement();
-		String value=(String)session.getAttribute(name);
-		info=info+name+":"+value+"<br/>";
-	}
-	session.removeAttribute("username");
-	session.removeAttribute("password");
-	session.invalidate();
-	response.sendRedirect("login.jsp");
-	
-%>
 <!DOCTYPE html>
 <html>
 <head>
 	<base href="<%=basePath%>">
-	<title>logout</title>
+	<title>class</title>
 	<meta charset="UTF-8">
 	<meta http-equiv="pragma" content="no-cache">
 	<meta http-equiv="expires" content="0">
@@ -33,14 +16,28 @@ String info="";
 	<meta http-equiv="description" content="demo test">
 </head>
 <body>
-<%--注释 --%>
-<!-- 注释 -->
-	<center>
-		<a href="login.jsp">点击返回登录界面</a>
-	</center>
-	<div>
-	<%=info %>
-	</div>
-	<%info=""; %>	
+	<center><font size="4">获取body内容</font></center>
+	<hr/>
+	<form action="<%=request.getContextPath()%>/GetReaderBody" method="post">
+	<table align="center" style="border-collapse:collapse;border:1px solid #ff0000;border-radius:5px">
+		<tr>
+			<td>
+				<label for="username">用户名:</label>
+				<input type="text" name="username">
+			</td>
+		</tr>
+		<tr align="right">
+			<td>
+				<label for="password">密码:</label>
+				<input type="text" name="password">
+			</td>
+		</tr>
+		<tr align="center">
+			<td>
+				<button type="submit">提交</button>
+			</td>
+		</tr>
+	</table>
+	</form>
 </body>
 </html>
