@@ -14,8 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet(
 		urlPatterns = {"/GetRequestDispatcherDemo"},
 		name="getRequestDispatcherDemo",
-		loadOnStartup=0,
-		displayName="Dispatcher"
+		loadOnStartup=0
 )
 
 public class GetRequestDispatcherDemo extends HttpServlet {

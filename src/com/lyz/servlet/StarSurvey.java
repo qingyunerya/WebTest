@@ -34,7 +34,7 @@ public class StarSurvey extends HttpServlet {
 		String name=req.getParameter("username");
 		String email=req.getParameter("email");
 		String[] starname=req.getParameterValues("starname");
-		String starinfo=null;
+		String starinfo="";
 		for(int i=0;i<starname.length;i++)
 		{
 			starinfo+=starname[i]+",";
