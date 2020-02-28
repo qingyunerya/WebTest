@@ -6,7 +6,7 @@ String basePath=request.getScheme()+"://"+request.getServerName()+":"+request.ge
 <html>
 <head>
 	<base href="<%=basePath%>">
-	<title>class</title>
+	<title>明星调查</title>
 	<meta charset="UTF-8">
 	<meta http-equiv="pragma" content="no-cache">
 	<meta http-equiv="expires" content="0">
@@ -16,10 +16,18 @@ String basePath=request.getScheme()+"://"+request.getServerName()+":"+request.ge
 	<meta http-equiv="description" content="demo test">
 </head>
 <body>
-	<center><font size="4">上传文件</font></center>
+	<center><font size="4">明星调查</font></center>
 	<hr/>
-	<form action="<%=request.getContextPath()%>/upload.do" method="post" enctype="multipart/form-data">
-	<input type="file" name="filename">
+	<form action="<%=request.getContextPath()%>/diaocha.do" method="post">
+	名字：<input type="text" name="username"><br/>
+	邮件：<input type="text" name="email"><br/>
+	你喜欢的明星：<br/>
+	<select name="starname" multiple="multiple" size="2">
+		<option value="成龙">成龙</option>
+		<option value="诸葛亮">诸葛亮</option>
+		<option value="毛泽东">毛泽东</option>
+		<option value="习近平">习近平</option>
+	</select>
 	<input type="submit" value="提交">
 	</form>
 </body>

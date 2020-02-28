@@ -3,6 +3,7 @@ package com.lyz.servlet;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
@@ -31,11 +32,14 @@ public class HelloServlet extends HttpServlet {
 		out.println("<head><title>helloservlet</title></head>");
 		out.println("<body>");
 		out.println("这是内容");
+		RequestDispatcher dispatcher=req.getRequestDispatcher("/GetRequestDispatcherDemo");
+		dispatcher.include(req, resp);
 		out.println("</body>");
 		out.println("</html>");
 		out.flush();
 		out.close();
 		System.out.println("调用Get方法"+this.getClass().getResource("/").getPath());
+		
 		
 	}
 

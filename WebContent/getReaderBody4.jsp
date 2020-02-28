@@ -18,8 +18,10 @@ String basePath=request.getScheme()+"://"+request.getServerName()+":"+request.ge
 <body>
 	<center><font size="4">上传文件</font></center>
 	<hr/>
-	<form action="<%=request.getContextPath()%>/upload.do" method="post" enctype="multipart/form-data">
+	<form action="<%=request.getContextPath()%>/uploads.do" method="post" enctype="multipart/form-data">
 	<input type="file" name="filename">
+	<input type="file" name=filename2>
+	<input type="file" name="filename3">
 	<input type="submit" value="提交">
 	</form>
 </body>
