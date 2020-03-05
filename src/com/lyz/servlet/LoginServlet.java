@@ -15,17 +15,17 @@ import javax.servlet.http.HttpServletResponse;
 import com.lyz.dao.User;
 
 @WebServlet(
-		name="registerHtm",
-		urlPatterns= {"/register.htm"},
+		name="loginHtm",
+		urlPatterns= {"/Login.htm"},
 		loadOnStartup = 0
 		)
-public class RegisterServlet extends HttpServlet {
+public class LoginServlet extends HttpServlet {
 
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	public RegisterServlet() {
+	public LoginServlet() {
 		// TODO Auto-generated constructor stub
 	}
 
@@ -41,34 +41,27 @@ public class RegisterServlet extends HttpServlet {
 		req.setCharacterEncoding("UTF-8");
 		String username=req.getParameter("username");
 		String password=req.getParameter("password");
-		String confirmPassword=req.getParameter("confirmPassword");
-		String email=req.getParameter("email");
-		List<String> errors=new ArrayList<String>();
-		System.out.println("进入注册界面");
-		if(!isValidEmail(email))
+		if(checkLogin(username,password))
 		{
-			errors.add("无效的邮箱号码");
-		}
-		if(isValidUsername(username))
+			req.getRequestDispatcher("/Member.htm").forward(req, resp);
+		}else
 		{
-			errors.add("用户名为空或者不存在");
+			resp.sendRedirect("login2.jsp");
 		}
-		if(isValidPassword(password,confirmPassword))
+	}
+	public boolean checkLogin(String username,String password)
+	{
+		User user=User.getInstance();
+		Map<String,String> map=user.getUserMap();
+		if(username!=null&&!username.equals("")&&password!=null&&!password.equals(""))
 		{
-			errors.add("密码为空或者密码不一致");
+			String[] pwd=map.get(username).split("##");
+			if(pwd[0].equals(password))
+				return true;
+			else return false;
 		}
-		if(!errors.isEmpty())
-		{
-			req.setAttribute("errors",errors);
-			req.getRequestDispatcher("/error.htm").forward(req, resp);
-		}
-		else
-		{
-			User user=User.getInstance();
-			Map<String,String> map=user.getUserMap();
-			map.put(username,password+"##"+email);
-			req.getRequestDispatcher("/success.htm").forward(req, resp);
-		}
+		return false;
+		
 	}
 	public boolean isValidEmail(String email)
 	{
