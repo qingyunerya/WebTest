@@ -32,8 +32,10 @@ public class HelloServlet extends HttpServlet {
 		out.println("<head><title>helloservlet</title></head>");
 		out.println("<body>");
 		out.println("这是内容");
-		RequestDispatcher dispatcher=req.getRequestDispatcher("/GetRequestDispatcherDemo");
-		dispatcher.include(req, resp);
+		/*RequestDispatcher dispatcher=req.getRequestDispatcher("/GetRequestDispatcherDemo");
+		dispatcher.include(req, resp);*/
+		//resp.sendRedirect(req.getContextPath()+"/download.do");
+		//resp.sendError(resp.SC_BAD_REQUEST,"错误请求");
 		out.println("</body>");
 		out.println("</html>");
 		out.flush();

@@ -50,7 +50,7 @@ public class StarSurvey extends HttpServlet {
 		out.println("</html>");
 		out.flush();
 		out.close();
-	}
+	} 
 
 	@Override
 	public void destroy() {
