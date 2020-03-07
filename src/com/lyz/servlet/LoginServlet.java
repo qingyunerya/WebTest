@@ -48,6 +48,7 @@ public class LoginServlet extends HttpServlet {
 		{
 			resp.sendRedirect("login2.jsp");
 		}
+		//resp.sendRedirect(resp.encodeRedirectUrl("Login1.htm"));
 	}
 	public boolean checkLogin(String username,String password)
 	{
@@ -61,7 +62,6 @@ public class LoginServlet extends HttpServlet {
 			else return false;
 		}
 		return false;
-		
 	}
 	public boolean isValidEmail(String email)
 	{

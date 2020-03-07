@@ -29,5 +29,15 @@
 		<servlet-name>TestServlet</servlet-name>
 		<url-pattern>/TestServlet</url-pattern>
 	</servlet-mapping>
-
+	<servlet>
+		<servlet-name>guessNumber</servlet-name>
+		<servlet-class>com.lyz.servlet.GuessNumber</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>guessNumber</servlet-name>
+		<url-pattern>/GuessNumber</url-pattern>
+	</servlet-mapping>
+	<sesion-config>
+		<session-timeout>30</session-timeout>
+	</sesion-config>
 </web-app>
