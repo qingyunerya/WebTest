@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3.1.xsd"
+         version="3.1">
+        
+	<welcome-file-list>
+		<welcome-file>index.jsp</welcome-file>
+	</welcome-file-list>
+	<servlet>
+		<servlet-name>jspconfigdemo</servlet-name>
+		<jsp-file>/config.jsp</jsp-file>
+		<init-param>
+			<param-name>url</param-name>
+			<param-value>baidu.com</param-value>
+		</init-param>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>jspconfigdemo</servlet-name>
+		<url-pattern>/config</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>TestServlet</servlet-name>
+		<servlet-class>com.lyz.servlet.TestServlet</servlet-class>
+	
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>TestServlet</servlet-name>
+		<url-pattern>/TestServlet</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>guessNumber</servlet-name>
+		<servlet-class>com.lyz.servlet.GuessNumber</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>guessNumber</servlet-name>
+		<url-pattern>/GuessNumber</url-pattern>
+	</servlet-mapping>
+	<sesion-config>
+		<session-timeout>30</session-timeout>
+	</sesion-config>
+</web-app>
