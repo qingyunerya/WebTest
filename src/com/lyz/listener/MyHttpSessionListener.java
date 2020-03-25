@@ -10,6 +10,7 @@ public class MyHttpSessionListener implements HttpSessionListener{
 	private static int count;
 	public static int getCount() {
 		return count;
+		
 	}
 	@Override
 	public void sessionCreated(HttpSessionEvent arg0) {
