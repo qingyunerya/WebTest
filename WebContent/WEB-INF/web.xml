@@ -47,4 +47,19 @@
 		<param-name>username</param-name>
 		<param-value>Bob</param-value>
 	</context-param>
+	<filter>
+		<description>demo</description>
+		<filter-name>myfilter</filter-name>
+		<filter-class>com.lyz.filter.MyFilter</filter-class>
+		<init-param>
+			<param-name>param</param-name>
+			<param-value>paramvalue</param-value>
+		</init-param>
+	</filter>
+	<filter-mapping>
+		<filter-name>myfilter</filter-name>
+		<url-pattern>/*</url-pattern>
+		<servlet-name>*.do</servlet-name>
+		<dispatcher>REQUEST</dispatcher>
+	</filter-mapping>
 </web-app>
