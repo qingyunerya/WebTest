@@ -40,4 +40,11 @@
 	<sesion-config>
 		<session-timeout>30</session-timeout>
 	</sesion-config>
+	<listener>
+		<listener-class>com.lyz.listener.MyServletContextListener</listener-class>
+	</listener>
+	<context-param>
+		<param-name>username</param-name>
+		<param-value>Bob</param-value>
+	</context-param>
 </web-app>

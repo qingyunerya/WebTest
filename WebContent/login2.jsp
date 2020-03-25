@@ -33,7 +33,7 @@ String pageinfo=Integer.toString(page.hashCode());  //Servlet类的哈希代码
 </head>
 <%response.encodeUrl("login.jsp"); %>
 <body>
-<form action="<%=request.getContextPath()%>/Login.htm" method="post">
+<form action="<%=request.getContextPath()%>/Login" method="post">
 	<table align="center" style="margin: 10px auto; border-collapse: collapse; border: 1px solid #aaccdd">
 		<tr>
 			<td align="center">
@@ -63,6 +63,7 @@ String pageinfo=Integer.toString(page.hashCode());  //Servlet类的哈希代码
 <div>
 <%=info %>
 访问次数:<%=count %>
+当前在线人数：${sessionScope.count}
 <a href="Login.htm;jsessionid=ajfjfkjsjfsjkfdjsfj?username=nima&password=123456">Url重写</a>
 </div>
 </body>

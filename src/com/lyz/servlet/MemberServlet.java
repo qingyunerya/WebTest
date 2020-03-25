@@ -39,7 +39,6 @@ public class MemberServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		req.setCharacterEncoding("UTF-8");
-		String username=req.getParameter("username");
 		System.out.println("进入注册界面");
 		resp.setContentType("text/html;charset=utf-8");
 		PrintWriter out=resp.getWriter();
@@ -48,6 +47,7 @@ public class MemberServlet extends HttpServlet {
 		out.println("<h1>会员登陆成功</h1>");
 		req.setCharacterEncoding("UTF-8");
 		out.println(req.getParameter("username")+"登陆成功");
+		out.println("当前在线人数："+(Integer)req.getSession().getAttribute("count"));
 		out.println("<a href='login2.jsp'>返回首页登陆</a>");
 		out.println("</html>");
 		out.println("</body>");
