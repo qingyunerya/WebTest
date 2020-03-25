@@ -7,7 +7,6 @@ import javax.servlet.http.HttpSessionListener;
 @WebListener
 public class MyHttpSessionListener implements HttpSessionListener{
 
-
 	private static int count;
 	public static int getCount() {
 		return count;
