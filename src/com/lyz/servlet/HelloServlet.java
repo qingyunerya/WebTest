@@ -14,7 +14,8 @@ import javax.servlet.http.HttpServletResponse;
 
 @WebServlet(
 		urlPatterns = {"/HelloServlet"},
-		name="helloServlet"
+		name="helloServlet",
+		loadOnStartup = 0
 )
 public class HelloServlet extends HttpServlet {
 
@@ -25,13 +26,15 @@ public class HelloServlet extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		System.out.println("调用Get方法");
+		//System.out.println("调用Get方法");
 		resp.setContentType("text/html;charset=utf-8");
 		PrintWriter out=resp.getWriter();
 		out.println("<html>");
 		out.println("<head><title>helloservlet</title></head>");
 		out.println("<body>");
-		out.println("这是内容");
+		out.println("这是内容色情");
+		out.println("这是内容情色");
+		out.println("这是内容赌博");
 		/*RequestDispatcher dispatcher=req.getRequestDispatcher("/GetRequestDispatcherDemo");
 		dispatcher.include(req, resp);*/
 		//resp.sendRedirect(req.getContextPath()+"/download.do");
@@ -40,7 +43,7 @@ public class HelloServlet extends HttpServlet {
 		out.println("</html>");
 		out.flush();
 		out.close();
-		System.out.println("调用Get方法"+this.getClass().getResource("/").getPath());
+		//System.out.println("调用Get方法"+this.getClass().getResource("/").getPath());
 		
 		
 	}
@@ -48,7 +51,7 @@ public class HelloServlet extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		System.out.println("调用post方法");
+		//System.out.println("调用post方法");
 		doGet(req, resp);
 	}
 
@@ -56,14 +59,14 @@ public class HelloServlet extends HttpServlet {
 	protected void service(HttpServletRequest arg0, HttpServletResponse arg1) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		super.service(arg0, arg1);
-		System.out.println("调用protected service方法");
+		//System.out.println("调用protected service方法");
 	}
 
 	@Override
 	public void service(ServletRequest arg0, ServletResponse arg1) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		super.service(arg0, arg1);
-		System.out.println("调用service方法");
+		//System.out.println("调用service方法");
 	}
 
 	@Override
@@ -77,7 +80,7 @@ public class HelloServlet extends HttpServlet {
 	public void init() throws ServletException {
 		// TODO Auto-generated method stub
 		super.init();
-		System.out.println("调用init方法");
+		//System.out.println("调用init方法");
 	}
 	
 
