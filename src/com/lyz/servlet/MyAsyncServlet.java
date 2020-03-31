@@ -36,29 +36,28 @@ public class MyAsyncServlet extends HttpServlet {
 		resp.setContentType("text/html;charset=utf-8");
 		PrintWriter out=resp.getWriter();
 		out.println("异步通信测试"+sdf.format(new Date()));
+		out.flush();
 		AsyncContext asyncContext=req.startAsync(req, resp);
-		asyncContext.setTimeout(90000000);
-		new Thread(new Executor(asyncContext));
+		asyncContext.setTimeout(900000000);
+		new Thread(new Executor(asyncContext)).start();
 		out.println("结束时间："+sdf.format(new Date()));
 		out.flush();
-		
-		
-		
 	}
-	class Executor implements  Runnable{
+public class Executor implements  Runnable{
 
 		private AsyncContext ctx=null;
-		Executor(AsyncContext ctx){
+		public Executor(AsyncContext ctx){
 			this.ctx=ctx;
 		}
 		@Override
 		public void run() {
 			// TODO Auto-generated method stub
 			try {
-				Thread.sleep(2000);
-				PrintWriter outPrintWriter=ctx.getResponse().getWriter();
-				outPrintWriter.write("业务处理完毕时间："+sdf.format(new Date()));
-				outPrintWriter.flush();
+				Thread.sleep(20000);
+				PrintWriter out=ctx.getResponse().getWriter();
+				out.println("业务处理完毕时间："+sdf.format(new Date()));
+				System.out.println("业务处理完毕时间："+sdf.format(new Date()));
+				out.flush();
 				ctx.complete();
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
@@ -73,18 +72,6 @@ public class MyAsyncServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		doGet(req, resp);
-	}
-
-	@Override
-	public void destroy() {
-		// TODO Auto-generated method stub
-		super.destroy();
-	}
-
-	@Override
-	public void init() throws ServletException {
-		// TODO Auto-generated method stub
-		super.init();
 	}
 	
 
