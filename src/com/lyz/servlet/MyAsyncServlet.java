@@ -36,9 +36,9 @@ public class MyAsyncServlet extends HttpServlet {
 		resp.setContentType("text/html;charset=utf-8");
 		PrintWriter out=resp.getWriter();
 		out.println("异步通信测试"+sdf.format(new Date()));
-		/*AsyncContext asyncContext=req.startAsync(req, resp);
+		AsyncContext asyncContext=req.startAsync(req, resp);
 		asyncContext.setTimeout(90000000);
-		new Thread(new Executor(asyncContext));*/
+		new Thread(new Executor(asyncContext));
 		out.println("结束时间："+sdf.format(new Date()));
 		out.flush();
 		
