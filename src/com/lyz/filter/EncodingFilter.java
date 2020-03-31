@@ -1,6 +1,7 @@
 package com.lyz.filter;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 
 import javax.servlet.Filter;
 import javax.servlet.FilterChain;
@@ -16,6 +17,7 @@ import com.lyz.wrapper.RequestEncodingWrapper;
 @WebFilter(
 		description = "ecodingFilter",
 		filterName ="encodingFilter",
+		asyncSupported = true,
 		urlPatterns = {"/*"},
 		initParams = {
 			@WebInitParam(name="ENCODING",value="UTF-8")					
@@ -47,6 +49,7 @@ public class EncodingFilter implements Filter{
 			req.setCharacterEncoding(encoding);
 		}
 		arg1.setCharacterEncoding(encoding);
+		System.out.println(req.getRemoteAddr());
 		arg2.doFilter(req, arg1);
 	}
 

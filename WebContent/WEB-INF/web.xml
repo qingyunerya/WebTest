@@ -51,6 +51,7 @@
 		<description>demo</description>
 		<filter-name>myfilter</filter-name>
 		<filter-class>com.lyz.filter.MyFilter</filter-class>
+		<async-supported>true</async-supported>
 		<init-param>
 			<param-name>param</param-name>
 			<param-value>paramvalue</param-value>

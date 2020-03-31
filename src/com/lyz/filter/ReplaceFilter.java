@@ -21,6 +21,7 @@ import com.lyz.wrapper.ResponseReplaceWrapper;
 	description="内容替换过滤器",
 	filterName="replaceFilter",
 	urlPatterns = {"/*"},
+	asyncSupported = true,
 	initParams = {
 			@WebInitParam(name="filePath",value = "replace_ZH.properties")
 	}
