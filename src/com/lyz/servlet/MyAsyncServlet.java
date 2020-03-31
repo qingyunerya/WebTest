@@ -30,11 +30,12 @@ public class MyAsyncServlet extends HttpServlet {
 	 */
 	private static final long serialVersionUID = 1L;
 	SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+	PrintWriter out=null;
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		resp.setContentType("text/html;charset=utf-8");
-		PrintWriter out=resp.getWriter();
+		out=resp.getWriter();
 		out.println("异步通信测试"+sdf.format(new Date()));
 		out.flush();
 		AsyncContext asyncContext=req.startAsync(req, resp);
@@ -54,7 +55,7 @@ public class Executor implements  Runnable{
 			// TODO Auto-generated method stub
 			try {
 				Thread.sleep(20000);
-				PrintWriter out=ctx.getResponse().getWriter();
+				out=ctx.getResponse().getWriter();
 				out.println("业务处理完毕时间："+sdf.format(new Date()));
 				System.out.println("业务处理完毕时间："+sdf.format(new Date()));
 				out.flush();

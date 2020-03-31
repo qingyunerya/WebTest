@@ -11,11 +11,13 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.lyz.service.ClientService;
+
 /*@WebServlet(
 		urlPatterns = {"/HelloServlet"},
 		name="helloServlet"
-)
-*/
+)*/
+
 public class TestServlet extends HttpServlet {
 
 	/**
@@ -42,25 +44,27 @@ public class TestServlet extends HttpServlet {
 			out.println("</tr>");
 		}
 		out.println("</table>");
-		
+		try {
+			for(int i=0;i<20;i++) {
+				final String str="window.parent.update(\""
+						+String.valueOf(i)+"\");";
+				ClientService.getInstance().callClient(str);
+				Thread.sleep(2*1000);
+				if(i==10) {
+				break;
+				}
+			}
+				
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 	}
 
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		doGet(req, resp);
-	}
-
-	@Override
-	public void destroy() {
-		// TODO Auto-generated method stub
-		super.destroy();
-	}
-
-	@Override
-	public void init() throws ServletException {
-		// TODO Auto-generated method stub
-		super.init();
 	}
 	
 
