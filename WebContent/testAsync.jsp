@@ -15,7 +15,7 @@ border:0;
 
 </style>
 <script tyep="text/javascript">
-function(date){
+function update(date){
 	var result=document.getElementsByName("result")[0];
 	result.value=result.value+date+"\n";
 }
