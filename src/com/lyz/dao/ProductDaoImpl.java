@@ -40,14 +40,14 @@ public class ProductDaoImpl implements ProductDao {
 		String sql="select product_id,product_name,price,info from product";
 		if(product_name!=null&&"".equals(product_name)) {
 			sql="select product_id,product_name,price,info from product where product_name like ?";
+			this.pstmt=this.conn.prepareStatement(sql);
 			this.pstmt.setString(1, "%"+product_name+"%");
 		}else {
 			this.pstmt=this.conn.prepareStatement(sql);
 		}
-		this.pstmt=this.conn.prepareStatement(sql);
 		ResultSet rs=this.pstmt.executeQuery();
 		Product product=null;
-		if(rs.next())
+		while(rs.next())
 		{
 			product=new Product();
 			product.setProduct_id(rs.getString(1));
@@ -64,18 +64,23 @@ public class ProductDaoImpl implements ProductDao {
 		// TODO Auto-generated method stub
 		Product product =null;
 		String  sql="select product_id,product_name,price,info from  product where product_id=?";
-		this.pstmt=this.conn.prepareStatement(sql);
-		this.pstmt.setString(1, product_id);
-		ResultSet rs=this.pstmt.executeQuery();
-		if(rs.next()) {
-			product=new Product();
-			product.setProduct_id(rs.getString(1));
-			product.setProduct_name(rs.getString(2));
-			product.setPrice(rs.getDouble(3));
-			product.setInfo(rs.getString(4));
+		if(product_id!=null&&!"".equals(product_id))
+		{
+			this.pstmt=this.conn.prepareStatement(sql);
+			this.pstmt.setString(1, product_id);
+			ResultSet rs=this.pstmt.executeQuery();
+			if(rs.next()) {
+				product=new Product();
+				product.setProduct_id(rs.getString(1));
+				product.setProduct_name(rs.getString(2));
+				product.setPrice(rs.getDouble(3));
+				product.setInfo(rs.getString(4));
+			}
+			this.pstmt.close();
+			return product;
 		}
-		this.pstmt.close();
-		return product;
+		else return new Product();
+		
 	}
 
 }

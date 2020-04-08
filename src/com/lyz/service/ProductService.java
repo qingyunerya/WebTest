@@ -38,6 +38,13 @@ public class ProductService implements ProductDao {
 		List<Product> all=null;
 		try {
 			all=this.dao.findAll(keyWord);
+			for(Product product:all )
+			System.out.println(
+					"产品编号："+product.getProduct_id()+
+					"产品名称："+product.getProduct_name()+
+					"产品价格："+product.getPrice()+
+					"产品信息："+product.getInfo()
+					);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			throw e;
@@ -53,6 +60,12 @@ public class ProductService implements ProductDao {
 		Product product;
 		try {
 			product=this.dao.findProductById(prodcut_id);
+			System.out.println(
+					"产品编号："+product.getProduct_id()+
+					"产品名称："+product.getProduct_name()+
+					"产品价格："+product.getPrice()+
+					"产品信息："+product.getInfo()
+					);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			throw e;
