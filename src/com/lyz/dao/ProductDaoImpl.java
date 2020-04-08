@@ -38,7 +38,7 @@ public class ProductDaoImpl implements ProductDao {
 		// TODO Auto-generated method stub
 		List<Product> list=new ArrayList<>();
 		String sql="select product_id,product_name,price,info from product";
-		if(product_name!=null&&"".equals(product_name)) {
+		if(product_name!=null&&!"".equals(product_name)) {
 			sql="select product_id,product_name,price,info from product where product_name like ?";
 			this.pstmt=this.conn.prepareStatement(sql);
 			this.pstmt.setString(1, "%"+product_name+"%");

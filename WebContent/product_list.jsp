@@ -15,6 +15,7 @@
 String product_name=request.getParameter("product_name");
 String product_id =request.getParameter("product_id");
 List<Product> list=DAOFactory.getIEmpDAOInstance().findAll(product_name);
+System.out.println(list.toString());
 Product product=DAOFactory.getIEmpDAOInstance().findProductById(product_id);
 %>
 
