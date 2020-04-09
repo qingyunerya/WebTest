@@ -67,6 +67,9 @@ Product product=DAOFactory.getIEmpDAOInstance().findProductById(product_id);
 	</tr>
 
 </table>
+${param.product_name}.
+${param.product_id }
+${pageContext.request.method}
 
 </body>
 </html>
