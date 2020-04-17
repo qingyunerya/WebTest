@@ -108,10 +108,6 @@ ${6>5?"大":"小"}
 ${fn:indexOf("iubde","u") }
 ${fn:contains("ijiji","i") }
 ${fn:join(str,"|") }
-<sql:setDataSource driver="com.mysql.jdbc.Driver" url="jdbc:mysql://localhost:3306/webtest?useUnicode=true&amp;characterEncoding=UTF-8" user="root" password="123456" var="test" />
-<sql:query dataSource="${test }" var="querytest">
-
-</sql:query>
 
 </body>
 </html>
