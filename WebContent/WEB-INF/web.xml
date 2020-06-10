@@ -63,5 +63,4 @@
 		<servlet-name>*.do</servlet-name>
 		<dispatcher>REQUEST</dispatcher>
 	</filter-mapping>
-	
 </web-app>
