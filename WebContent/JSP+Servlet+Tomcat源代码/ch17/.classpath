@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="con" path="melibrary.com.genuitec.eclipse.j2eedt.core.MYECLIPSE_JAVAEE_5_CONTAINER"/>
+	<classpathentry kind="lib" path="D:/Workspaces/MyEclipse8.5M1/UTS2/WebRoot/WEB-INF/lib/jdbc_mysql.jar"/>
+	<classpathentry kind="lib" path="D:/Workspaces/ch11/WebRoot/WEB-INF/lib/jstl.jar" sourcepath="C:/Java/source_code/jakarta-taglibs-standard-1.1.2-src.zip"/>
+	<classpathentry kind="lib" path="D:/Workspaces/ch11/WebRoot/WEB-INF/lib/standard.jar" sourcepath="C:/Java/source_code/jakarta-taglibs-standard-1.1.2-src.zip"/>
+	<classpathentry kind="lib" path="D:/developTool/commons-lang3-3.3.2-bin/commons-lang3-3.3.2/commons-lang3-3.3.2.jar" sourcepath="C:/Java/source_code/commons-lang3-3.3.2-src.zip"/>
+	<classpathentry kind="lib" path="D:/开发资料以及个人资料/lib/log4j-1.2.16.jar"/>
+	<classpathentry kind="output" path="WebRoot/WEB-INF/classes"/>
+</classpath>
