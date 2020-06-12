@@ -23,6 +23,5 @@
 			<fmt:param value="${todayT}" />  
 		</fmt:message>  
         </fmt:bundle> 
-        <fmt:bundle basename=""></fmt:bundle>
     </body>  
 </html> 

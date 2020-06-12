@@ -1,4 +1,4 @@
-package com.eshore;
+package com.lyz.servlet;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -44,6 +44,7 @@ public class GetResourceBundelServlet extends HttpServlet {
 		String welcomeinfo = rb.getString("welcomeinfo");
 		//��ȡ�ļ���message����
 		String message = rb.getString("message");
+		
 		response.setContentType("text/html;charset=utf-8");
 		PrintWriter out = response.getWriter();
 		out.println("<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\">");
@@ -51,7 +52,6 @@ public class GetResourceBundelServlet extends HttpServlet {
 		out.println("  <HEAD><TITLE>welcomeinfo</TITLE></HEAD>");
 		out.println("  <BODY>");
 		out.println(" <h2>"+welcomeinfo+"</h2>");
-		out.println("  http://blog.sina.com.cn/u/1268307652</br>");
 		out.println(" <h4>"+message+"</h4>");
 		out.println("  </BODY>");
 		out.println("</HTML>");
